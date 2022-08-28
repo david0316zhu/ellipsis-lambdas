@@ -2,7 +2,7 @@ import os
 import psycopg2
 import json
 from datetime import datetime, timedelta
-from custom_trace import log_trace_message
+from .custom_trace import log_trace_message
 
 DB_USER = os.getenv('DB_USER')
 DB_PASS = os.getenv('DB_PASSWORD')

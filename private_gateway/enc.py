@@ -4,7 +4,7 @@ from Cryptodome.Cipher import AES, PKCS1_v1_5
 from Cryptodome.Hash import SHA256
 from Cryptodome.PublicKey import RSA
 from Cryptodome.Random import get_random_bytes
-from custom_trace import log_trace_message
+from .custom_trace import log_trace_message
 import json
 
 

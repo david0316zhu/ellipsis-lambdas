@@ -1,5 +1,8 @@
-from public_gateway.public_gateway_function import lambda_handler
+from public_gateway.public_gateway_function import lambda_handler as pub_lam
+
+
 import base64
+import json
 from Cryptodome.Cipher import AES, PKCS1_v1_5
 def encrypt_data(key: str, text: str) -> str:
     """Encrypt data payload to be sent to SCB Acquirer."""
@@ -20,10 +23,13 @@ def encrypt_data(key: str, text: str) -> str:
 SECRET_KEY = "iGAJ40TzyuTn1tZWMK42pQvk16RVAqmx"
 pl = "first_name=tom&last_name=lee&loan_amount=1000000&time_period=20&nric=t01234567a&asset_value=300000&monthly_income=6500"
 encrypted_payload = encrypt_data(key=SECRET_KEY, text=pl)
+
 payload = {
     "merchant_id": "1",
     "service": "risk_assessment",
     "enc": encrypted_payload
 
 }
-print(payload)
+
+ret = pub_lam({"body": json.dumps(payload)}, 0)
+print(ret)

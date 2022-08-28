@@ -1,6 +1,6 @@
 import json 
-from custom_trace import log_trace_message
-from utils import merchant_checks
+from .custom_trace import log_trace_message
+from .utils import merchant_checks
 
 def lambda_handler(event, context):
     """This function runs preliminary checks for merchant payloads"""
